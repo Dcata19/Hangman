@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hangman</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h2>Type a word which contains only uppercase letters</h2>
+        <div class="input-group mb-3">
+          <button class="btn btn-outline-secondary" onclick="start()" id="start">Start</button>
+          <input type="password" class="form-control" placeholder="Enter a word..." id="word">
+        </div>
+    </div>
+    <div class="container">
+      <h1 id="life"></h1>
+    </div>
+    <div class="container">
+        <h1 id="censored"></h1>
+    </div>
+    <div class="container" id="keys"></div>
+    <div class="position-relative">
+      <div class="position-absolute top-50 start-50 translate-middle-x">
+        <h1 id="winningStatus"></h1>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="hangman.js"></script>
+  </body>
+</html>
