@@ -10,7 +10,7 @@ function getInputWord() {
 
 //start the game
 function start() {
-    updateLife();
+    updateLives();
     createKeyboard();
     for (let i = 1; i <= getInputWord().length; ++i) {
         creatHiddenWord();
@@ -28,8 +28,8 @@ function creatHiddenWord() {
     ++idOfHiddenWord;
 }
 
-function updateLife() {
-    document.getElementById('life').innerText = 'Life: ' + lives;
+function updateLives() {
+    document.getElementById('life').innerText = 'Lives: ' + lives;
 }
 
 //create a key
@@ -40,7 +40,7 @@ function creatKey(i) {
     button.id = alphabet[i];
     button.innerText = alphabet[i];
     keyContainer.appendChild(button);
-    //check that the selected letter is on the entered word
+                    //check that the selected letter is on the entered word
     button.onclick = function checkCharacter() {
         if (getInputWord().indexOf(button.id) > -1) {
             for(let i = 0; i < getInputWord().length; ++i) {
@@ -53,7 +53,7 @@ function creatKey(i) {
         else {
             button.remove();
             --lives;
-            updateLife();
+            updateLives();
         }
         if(checkTheWinner() == 1) {
             document.getElementById('winningStatus').innerText = 'You win!';
