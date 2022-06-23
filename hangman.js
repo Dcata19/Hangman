@@ -40,28 +40,30 @@ function creatKey(i) {
     button.id = alphabet[i];
     button.innerText = alphabet[i];
     keyContainer.appendChild(button);
-                    //check that the selected letter is on the entered word
-    button.onclick = function checkCharacter() {
-        if (getInputWord().indexOf(button.id) > -1) {
-            for(let i = 0; i < getInputWord().length; ++i) {
-                if (getInputWord()[i] == button.id) {
-                    document.getElementById(i + 1).innerText = button.id;
-                }
+    button.onclick = () =>{checkCharacter(button.id)} 
+}
+
+//check that the selected letter is on the entered word
+function checkCharacter(id) {
+    if (getInputWord().indexOf(id) > -1) {
+        for(let i = 0; i < getInputWord().length; ++i) {
+            if (getInputWord()[i] == id) {
+                document.getElementById(i + 1).innerText = id;
             }
-            button.remove();
         }
-        else {
-            button.remove();
-            --lives;
-            updateLives();
-        }
-        if(checkTheWinner() == 1) {
-            document.getElementById('winningStatus').innerText = 'You win!';
-            document.getElementById('keys').remove();
-        } else if(lives == 0) {
-            document.getElementById('winningStatus').innerText = 'You lose! ' + '"The word: ' + getInputWord() + '"';
-            document.getElementById('keys').remove();
-        }
+        document.getElementById(id).remove();
+    }
+    else {
+        document.getElementById(id).remove();
+        --lives;
+        updateLives();
+    }
+    if(checkTheWinner() == 1) {
+        document.getElementById('winningStatus').innerText = 'You win!';
+        document.getElementById('keys').remove();
+    } else if(lives == 0) {
+        document.getElementById('winningStatus').innerText = 'You lose! ' + '"The word: ' + getInputWord() + '"';
+        document.getElementById('keys').remove();
     }
 }
 
